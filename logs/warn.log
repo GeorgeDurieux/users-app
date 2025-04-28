@@ -100,3 +100,5 @@
 {"label":"MY LABEL FOR PRODUCTS APP","level":"error","message":"Message with error","timestamp":"15-04-2025 19:49:1818"}
 {"label":"MY LABEL FOR PRODUCTS APP","level":"warn","message":"Success in reading all users","timestamp":"25-04-2025 22:58:4949"}
 {"label":"MY LABEL FOR PRODUCTS APP","level":"error","message":"Message with error","timestamp":"25-04-2025 22:58:4949"}
+{"label":"MY LABEL FOR PRODUCTS APP","level":"warn","message":"Success in reading all users","timestamp":"28-04-2025 12:19:1313"}
+{"label":"MY LABEL FOR PRODUCTS APP","level":"error","message":"Message with error","timestamp":"28-04-2025 12:19:1313"}

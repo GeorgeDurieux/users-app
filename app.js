@@ -13,8 +13,7 @@ const userProduct = require('./routes/user.products.routes')
 const auth = require('./routes/auth.routes');
 
 app.use(cors({
-  // origin: '*'
-  origin: ['http://localhost:8000']
+  origin: ['http://localhost:3000']
 }))
 
 app.use('/api/auth', auth);

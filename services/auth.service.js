@@ -16,19 +16,22 @@ function generateAccessToken(user){
 }
 
 function verifyAccessToken(token){
+    
   const secret = process.env.TOKEN_SECRET;
   
   try {
     const payload = jwt.verify(token, secret);
-
     return { verified: true, data: payload }
+
   } catch (err) {
     return { verified: false, data: err.message }
   }
 }
 
 async function googleAuth(code) {
+
   console.log("Google login", code);
+
   const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
   const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
   const REDIRECT_URI = process.env.REDIRECT_URI;
@@ -51,6 +54,7 @@ async function googleAuth(code) {
     const userInfo = await ticket.getPayload();
     console.log("Google User", userInfo);
     return {user: userInfo, tokens}
+
   } catch (error) {
     console.log("Error in google authentication", error);
     return { error: "Failed to authenticate with google"}

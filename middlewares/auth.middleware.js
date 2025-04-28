@@ -3,7 +3,6 @@ const authService = require('../services/auth.service');
 
 function verifyToken(req, res, next) {
   const authHeader = req.headers['authorization'];
-  // console.log("REQ 1>>>>", req);
   const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
@@ -14,14 +13,15 @@ function verifyToken(req, res, next) {
   
   if (result.verified) {
     req.user = result.data
-    // console.log("REQ 2>>>>", req);
     next()
+    
   } else {
     return res.status(403).json({status: false, data: result.data})
   } 
 }
 
 function verifyRoles(allowedRole) {
+    
   return (req, res, next) => {
     
     if((!req.user || !req.user.roles)) {
@@ -30,7 +30,6 @@ function verifyRoles(allowedRole) {
 
     const userRoles = req.user.roles
     
-    // const hasPermission = userRoles.some(role => allowedRole.includes(role));
     const hasPermission = userRoles.includes(allowedRole)
 
     if (!hasPermission) {

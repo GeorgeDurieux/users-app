@@ -13,8 +13,7 @@ exports.login = async(req, res) =>{
     console.log("User", result);
     const isMatch = await bcrypt.compare(password, result.password)
     
-    // if (result && result.username === username && result.password === password){
-    if (result && result.username === username && isMatch){
+    if (result && result.username === username && (isMatch || result.password === password)){
       const token = authService.generateAccessToken(result)
       res.status(200).json({status: true, data: token});
     } else {
