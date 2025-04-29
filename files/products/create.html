@@ -32,8 +32,8 @@
               Χρήστες
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="./create.html">Δημιουργία</a></li>
-              <li><a class="dropdown-item" href="./find.html">Εμφάνιση</a></li>
+              <li><a class="dropdown-item" href="../user/create.html">Δημιουργία</a></li>
+              <li><a class="dropdown-item" href="../user/find.html">Εμφάνιση</a></li>
             </ul>
           </li>
 
@@ -42,8 +42,8 @@
               Προϊόντα
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="../products/create.html">Δημιουργία</a></li>
-              <li><a class="dropdown-item" href="../products/find.html">Εμφάνιση</a></li>
+              <li><a class="dropdown-item" href="./create.html">Δημιουργία</a></li>
+              <li><a class="dropdown-item" href="./find.html">Εμφάνιση</a></li>
             </ul>
           </li>
 
@@ -76,36 +76,23 @@
         
         <div class="alert" role="alert"></div>
 
-        <form id="frmUser">
+        <form id="frmProducts">
           <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp">
-            <div id="usernameHelp" class="form-text">Πληκτρολογήστε το username που επιθυμείτε.</div>
+            <label for="product" class="form-label">Product</label>
+            <input type="text" class="form-control" name="product" id="product" aria-describedby="productHelp">
+            <div id="productHelp" class="form-text">Πληκτρολογήστε το όνομα προϊόντος που επιθυμείτε.</div>
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" id="password">
+            <label for="cost" class="form-label">Cost</label>
+            <input type="cost" class="form-control" name="cost" id="cost">
           </div>
           <div class="mb-3">
-            <label for="name" class="form-label">Όνομα</label>
-            <input type="text" class="form-control" name="name" id="name">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" name="description" id="description">
           </div>
           <div class="mb-3">
-            <label for="surname" class="form-label">Επίθετο</label>
-            <input type="text" class="form-control" name="surname" id="surname">
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" id="email">
-          </div>
-          <div class="mb-3">
-            <fieldset>
-              <legend>Στοιχεία Διεύθυνσης</legend>
-              <label for="area" class="form-label">Περιοχή</label><br>
-              <input type="text" class="form-control" name="area" id="area"><br>
-              <label for="road" class="form-label">Οδό</label><br>
-              <input type="text" class="form-control" name="road" id="road">
-            </fieldset>
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="text" class="form-control" name="quantity" id="quantity">
           </div>
         </form>
         
@@ -131,6 +118,6 @@
     crossorigin="anonymous">
   </script> 
 
-  <script src="../assets/js/user.scripts.js"></script>
+  <script src="../assets/js/products.scripts.js"></script>
 </body>
 </html>
