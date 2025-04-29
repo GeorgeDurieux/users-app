@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 let addressSchema = new Schema({
   area: { type: String },
@@ -22,7 +22,7 @@ let productsSchema = new Schema({
 let userSchema = new Schema({
   username: {
     type: String,
-    required: [true, "Username is required field"],
+    required: [true, 'Username is required'],
     max: 20,
     unique: true,
     trim: true,
@@ -30,22 +30,22 @@ let userSchema = new Schema({
   },
   password: { 
     type: String, 
-    required: [true, 'Password is required field'],
+    required: [true, 'Password is required'],
     max:20
   },
   name: {
     type: String,
-    required: [true, 'Name is required field'],
+    required: [true, 'Name is required'],
     max: 20
   },
   surname: {
     type: String,
-    required: [ true, 'Surname is required field'],
+    required: [ true, 'Surname is  required'],
     max: 20
   },
   email: {
     type: String,
-    required: [ true, 'Email is required field'],
+    required: [ true, 'Email is required'],
     max: 20,
     unique:true,
     trim: true,
@@ -61,4 +61,4 @@ let userSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model("User", userSchema)
+module.exports = mongoose.model('User', userSchema)
