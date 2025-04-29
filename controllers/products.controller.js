@@ -1,26 +1,19 @@
 const Product = require("../models/products.model");
 const productsService = require("../services/products.service");
-const bcrypt = require("bcrypt");
-
 const logger = require("../logger/logger");
 
 exports.findAll = async (req, res) => {
-    console.log("Find all products from collection products");
-
     try {
         const result = await productsService.findAll();
         res.status(200).json({ status: true, data: result });
-        console.log("Success in reading all products");
         logger.info("Success in reading all products");
     } catch (err) {
-        console.log("Problem in reading all products", err);
         logger.error("Problem in reading all products", err);
         res.status(400).json({ status: false, data: err });
     }
 };
 
 exports.findOne = async (req, res) => {
-    console.log("Find specific product");
     let product = req.params.product;
 
     try {
@@ -31,14 +24,14 @@ exports.findOne = async (req, res) => {
         } else {
             res.status(404).json({ status: false, data: "Product does not exist" });
         }
+        logger.info('Success finding product')
     } catch (err) {
-        console.log("Problem finding product", err);
         res.status(400).json({ status: false, data: err });
+        logger.error('Error finding product', err)
     }
 };
 
 exports.create = async (req, res) => {
-    console.log("Create product");
     let data = req.body;
 
     const newProduct = new Product({
@@ -51,16 +44,15 @@ exports.create = async (req, res) => {
     try {
         const result = await newProduct.save();
         res.status(200).json({ status: true, data: result });
+        logger.info('Success creating product')
     } catch (err) {
-        console.log("Problem in creating product", err);
         res.status(400).json({ status: false, data: err });
+        logger.error('Error creating product', err)
     }
 };
 
 exports.update = async (rew, res) => {
     const product = req.body.product;
-    console.log("Update product", product);
-
     const updateProduct = {
         product: req.body.product,
         cost: req.body.cost,
@@ -75,21 +67,22 @@ exports.update = async (rew, res) => {
             { new: true }
         );
         res.status(200).json({ status: true, data: result });
+        logger.info('Success updating product')
     } catch (err) {
-        console.log("Problem in updating product", err);
         res.status(400).json({ status: false, data: err });
+        logger.error('Error updating product', err)
     }
 };
 
 exports.delete = async (req, res) => {
     const product = req.params.product;
-    console.log("Delete product ", product);
 
     try {
         const result = await Product.findOneAndDelete({ product: product });
         res.status(200).json({ status: true, data: result });
+        logger.info('Success deleting product')
     } catch (err) {
-        console.log("Problem in deleting product", err);
         res.status(400).json({ status: false, data: err });
+        logger.error('Error deleting product', err)
     }
 };
