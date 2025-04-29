@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const request = require("supertest");
 
 const authService = require('../services/auth.service');
-const userService = require('../services/user.services');
+const userService = require('../services/user.service');
 
 const app = require('../app');
 // require('dotenv').config();

@@ -1,5 +1,5 @@
 const User = require('../models/user.model');
-const userService = require('../services/user.services');
+const userService = require('../services/user.service');
 const bcrypt = require('bcrypt');
 
 const logger = require('../logger/logger');
@@ -26,7 +26,6 @@ exports.findOne = async(req, res) => {
   let username = req.params.username;
 
   try {
-    // const result = await User.findOne({username: username});
     const result = await userService.findOne(username);
     if (result) {
       res.status(200).json({status:true, data: result});
