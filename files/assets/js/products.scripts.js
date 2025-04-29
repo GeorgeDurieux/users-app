@@ -3,9 +3,9 @@ $(document).ready(function () {
     const token = localStorage.getItem('jwt_token');
 
     if (!token) {
-        alert("You're not logged in!");
+        alert(false, "You're not logged in!");
     } else {
-        alert("You are logged in")
+        alert(true, "You are logged in")
     }
 
     $.ajax({
@@ -94,8 +94,8 @@ function createTbody(data) {
             "<td>" + description + "</td>" +
             "<td>" + quantity + "</td>" +
             "<td>" +
-            "<button class='btnUpdate btn btn-primary' value=\'" + product + "\'>Τροποποίηση</button> " +
-            "<button class='btnDelete btn btn-primary' value=\'" + product + "\'>Διαγραφή</button>" +
+            "<button class='btnUpdate btn btn-primary' value=\'" + product + "\'>Update</button> " +
+            "<button class='btnDelete btn btn-danger' value=\'" + product + "\'>Delete</button>" +
             "</td>" +
             "</tr>";
 

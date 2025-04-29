@@ -3,9 +3,9 @@ $(document).ready(function () {
     const token = localStorage.getItem('jwt_token');
 
     if (!token) {
-        alert("You're not logged in!");
+        alert(false, "You're not logged in!");
     } else {
-        alert("You are logged in")
+        alert(true, "You are logged in")
     }
 
     $.ajax({
@@ -63,12 +63,12 @@ $(document).ready(function () {
                 let status = response.status
 
                 if (status) {
-                    console.log(true, 'Επιτυχής εισαγωγή του χρήστη');
+                    console.log('Επιτυχής εισαγωγή του χρήστη');
                     alert(true, 'Επιτυχής εισαγωγή του χρήστη');
                     $('#frmUser')[0].reset();
                     window.location.replace("http://localhost:3000/user/find.html")
                 } else {
-                    console.log(false, 'Πρόβλημα στην εισαγωγή του χρήστη (' + data.message + ')');
+                    console.log('Πρόβλημα στην εισαγωγή του χρήστη (' + data.message + ')');
                     alert(false, 'Πρόβλημα στην εισαγωγή του χρήστη (' + data.message + ')');
                     $('#frmUser')[0].reset();
                 }
@@ -107,8 +107,8 @@ function createTbody(data) {
             "<td>" + address + "</td>" +
             "<td>" + phone + "</td>" +
             "<td>" +
-            "<button class='btnUpdate btn btn-primary' value=\'" + username + "\'>Τροποποίηση</button> " +
-            "<button class='btnDelete btn btn-primary' value=\'" + username + "\'>Διαγραφή</button>" +
+            "<button class='btnUpdate btn btn-primary' value=\'" + username + "\'>Update</button> " +
+            "<button class='btnDelete btn btn-danger' value=\'" + username + "\'>Delete</button>" +
             "</td>" +
             "</tr>";
 
