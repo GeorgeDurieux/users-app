@@ -11,14 +11,11 @@ function findOne(username) {
 }
 
 async function findLastInsertedUser(){
-  console.log("Find last inserted user")
-
   try {
     const result = await User.find().sort({_id:-1}).limit(1)
-    console.log("Success in finding last inserted user")
     return result[0]
   } catch (err){
-    console.log("Problem in finding last inserted user", err)
+    logger.err("Problem in finding last inserted user", err)
     return false
   }
 }

@@ -10,4 +10,14 @@ function findOne(product) {
     return result
 }
 
-module.exports = { findAll, findOne }
+async function findLastInsertedProduct(){
+  try {
+    const result = await Products.find().sort({_id:-1}).limit(1)
+    return result[0]
+  } catch (err){
+    logger.err("Problem in finding last inserted product", err)
+    return false
+  }
+}
+
+module.exports = { findAll, findOne, findLastInsertedProduct }
