@@ -7,7 +7,8 @@ const verifyRoles = require("../middlewares/auth.middleware").verifyRoles;
 
 router.get("/", verifyToken, verifyRoles('READER'), userController.findAll);
 router.get("/:username", verifyToken, userController.findOne);
-router.post("/", verifyToken, verifyRoles("EDITOR"), userController.create);
+// router.post("/", verifyToken, verifyRoles("EDITOR"), userController.create);
+router.post("/", userController.create);
 router.patch(
     "/:username",
     verifyToken,
@@ -26,6 +27,6 @@ router.delete(
     verifyRoles("ADMIN"),
     userController.deleteByEmail
 );
-router.get('check_duplicate_email/:email', userController.checkDuplicateEmail)
+router.get('/check_duplicate_email/:email', userController.checkDuplicateEmail)
 
 module.exports = router;

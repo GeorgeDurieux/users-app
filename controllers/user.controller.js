@@ -118,11 +118,13 @@ exports.deleteByEmail = async (req, res) => {
 };
 
 exports.checkDuplicateEmail = async(req, res) => {
-    const mail = req.params.email
+    const email = req.params.email
 
     try {
+        console.log('controller try ok')
         const result = await User.findOne({email: email})
         if (result) {
+            console.log(result)
             res.status(400).json({status: false, data: result})
         } else {
             res.status(200).json({status: true, data: result})

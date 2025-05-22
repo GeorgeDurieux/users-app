@@ -14,7 +14,7 @@ const products = require('./routes/products.routes')
 const auth = require('./routes/auth.routes')
 
 app.use(cors({
-  origin: ['http://localhost:3000']
+  origin: '*'
 }))
 
 app.use('/api/auth', auth)
