@@ -26,5 +26,6 @@ router.delete(
     verifyRoles("ADMIN"),
     userController.deleteByEmail
 );
+router.get('check_duplicate_email/:email', userController.checkDuplicateEmail)
 
 module.exports = router;

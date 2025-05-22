@@ -116,3 +116,18 @@ exports.deleteByEmail = async (req, res) => {
         logger.err("Problem in deleting user", err);
     }
 };
+
+exports.checkDuplicateEmail = async(req, res) => {
+    const mail = req.params.email
+
+    try {
+        const result = await User.findOne({email: email})
+        if (result) {
+            res.status(400).json({status: false, data: result})
+        } else {
+            res.status(200).json({status: true, data: result})
+        }
+    } catch (err) {
+        res.status(400).json({status: false, data: err})
+    }
+}
