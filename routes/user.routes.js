@@ -7,8 +7,7 @@ const verifyRoles = require("../middlewares/auth.middleware").verifyRoles;
 
 router.get("/", verifyToken, verifyRoles('READER'), userController.findAll);
 router.get("/:username", verifyToken, userController.findOne);
-// router.post("/", verifyToken, verifyRoles("EDITOR"), userController.create);
-router.post("/", userController.create);
+router.post("/", verifyToken, verifyRoles("EDITOR"), userController.create);
 router.patch(
     "/:username",
     verifyToken,

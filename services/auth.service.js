@@ -41,7 +41,6 @@ async function googleAuth(code) {
   try {
 
     const { tokens } = await oauth2Client.getToken(code)
-    console.log("Step 1", tokens)
     oauth2Client.setCredentials(tokens)
 
     const ticket = await oauth2Client.verifyIdToken({
@@ -49,14 +48,17 @@ async function googleAuth(code) {
       audience: CLIENT_ID
     });
 
-    console.log("Step 2")
-
     const userInfo = await ticket.getPayload();
-    console.log("Google User", userInfo);
-    return {user: userInfo, tokens}
+    const user = {
+        username: userInfo.given_name,
+        email: userInfo.email,
+        roles: ['EDITOR', 'READER']
+    }
+    const token = this.generateAccessToken(user)
+    return token
 
   } catch (error) {
-    console.log("Error in google authentication", error);
+
     return { error: "Failed to authenticate with google"}
   }
 }
